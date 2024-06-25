@@ -5,6 +5,9 @@ const rootDir = require("../util/path");
 // mini express app tied to the other express app
 const router = express.Router();
 
+// holds the products data
+const products = [];
+
 // default method is for use is get.
 // top to bottom read
 // this will not go to the next middleware since there is no next().
@@ -20,8 +23,9 @@ router.get("/add-product", (req, res, next) => {
 // filter incoming post request.
 // POST
 router.post("/add-product", (req, res, next) => {
-  console.log(req.body);
+  products.push({ title: req.body.title });
   res.redirect("/");
 });
 
-module.exports = router;
+exports.routes = router;
+exports.products = products;

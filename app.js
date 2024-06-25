@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // own router
-const adminRoutes = require("./routes/admin");
+const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const usersRoutes = require("./routes/users");
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // passing the custom routes to the express app
 // can also explicitly add common route
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.routes);
 
 // allows to add middleware function
 // accepts array of request handler
