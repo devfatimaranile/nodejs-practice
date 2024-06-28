@@ -17,8 +17,14 @@ router.get("/", (req, res, next) => {
   // sending file to the client/browser
   // dirname = global variable that holds the absolute path of the project where it is being used which is "routes"
   // ../ go up one level
-  console.log("products", adminData.products);
-  res.sendFile(path.join(rootDir, "views", "shop.html"));
+  // res.sendFile(path.join(rootDir, "views", "shop.html"));
+
+  const products = adminData.products;
+
+  // using the set defaulting templating engine.
+  // no need to explicitly define the file extension
+  // second parameters is injecting the data to the view
+  res.render("shop", { prods: products, docTitle: "Sample Shop" });
 });
 
 module.exports = router;

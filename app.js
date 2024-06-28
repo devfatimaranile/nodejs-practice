@@ -8,6 +8,14 @@ const bodyParser = require("body-parser");
 // a valid request handler
 const app = express();
 
+// setting configuration value
+// allows setting global value across the app
+// reading value using app.get()
+// customizing the vew engine to the engine used for dynamic htmls
+app.set("view engine", "pug");
+// default setting for the views path is already /views
+// app.set("views", "views"); replace the second value with the file name for the views.
+
 // own router
 const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
