@@ -49,7 +49,10 @@ app.use(usersRoutes);
 // catch all middleware
 app.use((req, res, next) => {
   // chaining status with send as response
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+  // res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+
+  // PUG render
+  res.status(404).render("404");
 });
 
 app.listen(8080);
