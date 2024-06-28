@@ -24,7 +24,12 @@ router.get("/", (req, res, next) => {
   // using the set defaulting templating engine.
   // no need to explicitly define the file extension
   // second parameters is injecting the data to the view
-  res.render("shop", { prods: products, docTitle: "Sample Shop" });
+  res.render("shop", {
+    prods: products,
+    docTitle: "Sample Shop",
+    pageTitle: "Shop",
+    path: "/",
+  });
 });
 
 module.exports = router;
