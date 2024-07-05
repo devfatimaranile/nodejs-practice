@@ -12,7 +12,16 @@ const expressHbs = require("express-handlebars");
 // a valid request handler
 const app = express();
 
-app.engine("hbs", expressHbs());
+// layout can be specified inside express handlebar
+// default directory is "views/layouts/"
+app.engine(
+  "hbs",
+  expressHbs({
+    layoutsDir: "views/layouts/",
+    defaultLayout: "main-layout",
+    extname: "hbs", // this is only for layouts
+  })
+);
 app.set("view engine", "hbs");
 // setting configuration value
 // allows setting global value across the app
