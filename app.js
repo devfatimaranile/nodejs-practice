@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 // express handlebars
 // express handlebars cannot run logic inside the block statement
-const expressHbs = require("express-handlebars");
+// const expressHbs = require("express-handlebars");
 
 // create an express application
 // a valid request handler
@@ -14,20 +14,21 @@ const app = express();
 
 // layout can be specified inside express handlebar
 // default directory is "views/layouts/"
-app.engine(
-  "hbs",
-  expressHbs({
-    layoutsDir: "views/layouts/",
-    defaultLayout: "main-layout",
-    extname: "hbs", // this is only for layouts
-  })
-);
-app.set("view engine", "hbs");
+// app.engine(
+//   "hbs",
+//   expressHbs({
+//     layoutsDir: "views/layouts/",
+//     defaultLayout: "main-layout",
+//     extname: "hbs", // this is only for layouts
+//   })
+// );
+// >>> app.set("view engine", "hbs");
 // setting configuration value
 // allows setting global value across the app
 // reading value using app.get()
 // customizing the vew engine to the engine used for dynamic htmls
 // >>> app.set("view engine", "pug");
+app.set("view engine", "ejs");
 // default setting for the views path is already /views
 app.set("views", "views"); // replace the second value with the file name for the views.
 
